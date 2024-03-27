@@ -34,7 +34,7 @@ import { RouterLink } from 'vue-router';
   color: black;
 }
 
-/* Header 자식 요소 버튼 css*/
+/* Header 버튼 css*/
 .logoImg{
     width: 70px;
     height: 70px;
@@ -49,7 +49,7 @@ header button:nth-child(1):hover {
     transform: scale(1.1); /* 마우스를 올렸을 때의 버튼 크기 */
 }
 
-/* 두 번째, 세 번째 버튼에 대한 CSS */
+/* 2번째, 3번째 버튼에 대한 CSS */
 header button:nth-child(2),
 header button:nth-child(3) {
   border: #2c3e50;

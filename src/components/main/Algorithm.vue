@@ -3,12 +3,12 @@
         <div class="modal-header">
             <h2 class="m-header-title" v-if="data">Algorithm : {{ data }}</h2>
             <h2 class="m-header-title" v-else> No Data Selected</h2>
-            <button class="close-button" @click="$emit('close-modal')">
+            <button class="close-button" @click="sendButtonData()">
                 &times;
             </button>
         </div>
         <div class="h-auto w-auto">
-            < 앞으로 알고리즘 애니메이션을 보여주는 공간.>
+            앞으로 알고리즘 애니메이션을 보여주는 공간.
         </div>
         <div class="comment-section">
             <div class="comments">
@@ -26,6 +26,13 @@
         </div>
     </div>
 </template>
+
+<script setup>
+const emit = defineEmits(['toggleModal']);
+const sendButtonData = ()=>{
+    emit('downModal', false);
+};
+</script>
 
 <script>
 export default {
@@ -155,7 +162,6 @@ export default {
     font-weight: bold;
 }
 
-/* 새로운 CSS 코드 */
 .comment-text {
     font-size: 10pt;
 }
