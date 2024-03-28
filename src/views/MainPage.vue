@@ -3,9 +3,6 @@
         <MainTitle />
         <MainExplain />
         <MainList @selectedAlgorithm="handleSelectedAlgorithm" @toggleModal="toggleModal" />
-        <main class="bg-main-color">
-            <Posts />
-        </main>
         <MainFooter />
     </div>
     <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" class="modal-overlay" @downModal="downModal" />
@@ -18,7 +15,7 @@ import MainTitle from '../components/main/MainTitle.vue';
 import MainExplain from '../components/main/MainExplain.vue';
 
 import Algorithm from '../components/main/Algorithm.vue';
-import Posts from '../components/Posts.vue';
+
 import { ref } from 'vue';
 
 const selectedData = ref(null);
@@ -28,7 +25,7 @@ const handleSelectedAlgorithm = (algorithmName) => {
   selectedData.value = algorithmName;
 };
 
-//handleSelectedAlgorithm과 toggleModal의 값을 
+//handleSelectedAlgorithm과 toggleModal의 값을 받아 사용
 const toggleModal = (value) => {
   showModal.value = value;
 }
