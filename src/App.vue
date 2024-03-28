@@ -4,7 +4,7 @@
       <header class="px-4 lg:px-6 h-20 flex items-center pt-4 pb-2">
         <button class="whitespace-nowrap rounded-3xl text-lg px-2 py-1 flex items-center justify-center">
           <RouterLink to="/">
-            <img src="../public/viewLOGO.ico" alt="Logo" class="logoImg">
+            <img src="../public/faviconLogo.ico" alt="Logo" class="logoImg">
             <span class="sr-only">Home</span>
           </RouterLink>
         </button>
@@ -39,8 +39,8 @@ import { RouterLink } from 'vue-router';
 
 /* Header 버튼 css*/
 .logoImg{
-    width: 70px;
-    height: 70px;
+    width: auto;
+    height: auto;
 }
 
 header button:nth-child(1) {
