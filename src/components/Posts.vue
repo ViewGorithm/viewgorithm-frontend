@@ -36,30 +36,30 @@ export default {
     data() {
         return {
             posts: [
-                { 
-                    id: 1, 
-                    userId: 'user1', 
-                    title: 'title1', 
+                {
+                    id: 1,
+                    userId: 'user1',
+                    title: 'title1',
                     content: 'contents',
                     newComment: '',
                     comments: [
                         { id: 1, userId: 'user1', content: 'comment1' },
                     ]
                 },
-                { 
-                    id: 2, 
-                    userId: 'user2', 
-                    title: 'title2', 
+                {
+                    id: 2,
+                    userId: 'user2',
+                    title: 'title2',
                     content: 'contents',
                     newComment: '',
                     comments: [
                         { id: 1, userId: 'user1', content: 'comment1' },
                     ]
                 },
-                { 
-                    id: 3, 
-                    userId: 'user3', 
-                    title: 'title3', 
+                {
+                    id: 3,
+                    userId: 'user3',
+                    title: 'title3',
                     content: 'contents',
                     newComment: '',
                     comments: [
@@ -105,7 +105,6 @@ export default {
 </script>
 
 <style scoped>
-
 /* 게시판, 게시글 관련 css */
 .board {
     width: 80%;
@@ -191,5 +190,4 @@ export default {
 .input-container button:hover {
     background-color: #45a049;
 }
-
 </style>
