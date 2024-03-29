@@ -1,68 +1,37 @@
 <template>
     <div class="all flex flex-col min-h-[100dvh]">
-        <div class="flex-wrap bg-back-color text-white">
-            <h1 class="text-6xl font-bold">ViewGorithm</h1>
-            <p class="text-lg mt-4 pb-4">You Can VIEW The Process of ALGORITHMS.</p>
-        </div>
-        <div class="flex flex-row mb-5 mt-14 bg-white pt-10 pb-10">
-            <div class="header-under text-4xl font-bold">
-                Welcome to ViewGorithm!
-            </div>
-            <div class="vertical-line ml-2 mr-1"></div>
-            <div class="header-under font-mono mr-2 ml-1">
-                ViewGorithm provides a useful service for everyone who want to check the process of an algorithm.
-                With ViewGorithm, you can check the process of an algorithm with the animation.
-                Choose the algorithm you want check.
-            </div>
-        </div>
-        <main class="flex-1 flex flex-col items-center justify-center bg-section-color">
-            <section class="flex flex-col flex-nowrap">
-                <h1 class="list-title">Algorithm List</h1>
-                <div>
-                    Click the button down below and have an opportunity to check the process of an algorithm.
-                </div>
-                <div class="list-wrap flex flex-row flex-wrap gap-4">
-                    <div class="lists" v-for="name in algorithms" :key="name"
-                        @click="sendDataTo(name), showModal = true">
-                        {{ name }}
-                    </div>
-                </div>
-            </section>
-        </main>
-        <main class="bg-main-color">
-            <Posts />
-        </main>
-        <footer class="flex flex-col gap-2 sm:flex-row py-2 w-full shrink-0 items-center px-4 md:px-6 border-t">
-            <span class=" text-sm font-bold">ViewGorithm</span>
-        </footer>
+        <MainTitle />
+        <MainExplain />
+        <MainList @selectedAlgorithm="handleSelectedAlgorithm" @toggleModal="toggleModal" />
+        <MainFooter />
     </div>
-    <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" class="modal-overlay" />
+    <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" class="modal-overlay" @downModal="downModal" />
 </template>
 
-<script>
-import Algorithm from '../components/Algorithm.vue';
-import Posts from '../components/Posts.vue';
-export default {
-    name: 'MainPage',
-    data() {
-        return {
-            algorithms: ['Bubble sort', 'Merge Sort', 'Quick Sort'],
-            selectedData: null,
-            showModal: false
-        }
-    },
-    components: {
-        Algorithm,
-        Posts
-    },
-    methods: {
-        sendDataTo(name) {
-            this.selectedData = name;
-        },
-        closeModal() {
-            this.showModal = false;
-        },
-    }
+<script setup>
+import MainList from '../components/main/MainList.vue';
+import MainFooter from '../components/main/MainFooter.vue';
+import MainTitle from '../components/main/MainTitle.vue';
+import MainExplain from '../components/main/MainExplain.vue';
+
+import Algorithm from '../components/main/Algorithm.vue';
+
+import { ref } from 'vue';
+
+const selectedData = ref(null);
+const showModal = ref(false);
+
+const handleSelectedAlgorithm = (algorithmName) => {
+  selectedData.value = algorithmName;
+};
+
+//handleSelectedAlgorithm과 toggleModal의 값을 받아 사용
+const toggleModal = (value) => {
+  showModal.value = value;
+}
+
+const downModal = (value) => {
+  showModal.value = value;
 }
 </script>
 
@@ -123,7 +92,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 100%;
+    height: 95%;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;

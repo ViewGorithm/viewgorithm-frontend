@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-// import MainPage from '../views/MainPage.vue'
+
 import Join from '../views/Join.vue'
 import MainPage from '../views/MainPage.vue'
 
@@ -24,7 +24,11 @@ const router = createRouter({
       name: 'login',
       component: () => import('../views/Login.vue')
     },
-    
+    {
+      path: '/community',
+      name: 'community',
+      component: () => import('../views/Community.vue')
+    }
   ]
 })
 
