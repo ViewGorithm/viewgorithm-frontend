@@ -14,7 +14,6 @@ import Pagination from '../components/community/Pagination.vue';
 
 <style>
 .com {
-
   max-width: 800px;
   font-family: 'Roboto', sans-serif;
   padding: 20px;
