@@ -53,6 +53,8 @@ export default {
         data: String,
     },
     methods: {
+
+        //서버와 연결 작업 진행 시, 비동기 처리(30초 뒤 댓글 저장을 위한 서버 요청, 그 이전에 지우려고 한다면 가볍게 삭제처리)
         addComment() {
             if (this.newComment.text.trim() !== '' && this.newComment.author.trim() !== '') {
                 const newCommentObj = {
