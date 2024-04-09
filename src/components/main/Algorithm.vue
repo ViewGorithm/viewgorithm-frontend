@@ -10,20 +10,7 @@
         <div class="h-auto w-auto">
             앞으로 알고리즘 애니메이션을 보여주는 공간.
         </div>
-        <div class="comment-section">
-            <div class="comments">
-                <div v-for="comment in comments" :key="comment.id" class="comment">
-                    <div class="comment-header">
-                        <span class="comment-author">{{ comment.author }}</span>
-                    </div>
-                    <p class="comment-text">{{ comment.text }}</p>
-                </div>
-            </div>
-            <div class="comment-input">
-                <input v-model="newComment.text" placeholder="댓글 입력..." @keyup.enter="addComment">
-                <input v-model="newComment.author" placeholder="이름">
-            </div>
-        </div>
+        
     </div>
 </template>
 
@@ -40,11 +27,7 @@ export default {
     data() {
         return {
             showModalCom: true,
-            comments: [
-                { id: 1, author: '사용자1', text: '첫 번째 댓글' },
-                { id: 2, author: '사용자2', text: '두 번째 댓글' },
-            ],
-            newComment: { text: '', author: '' },
+            
         }
     },
     components: {
@@ -53,19 +36,7 @@ export default {
         data: String,
     },
     methods: {
-
-        //서버와 연결 작업 진행 시, 비동기 처리(30초 뒤 댓글 저장을 위한 서버 요청, 그 이전에 지우려고 한다면 가볍게 삭제처리)
-        addComment() {
-            if (this.newComment.text.trim() !== '' && this.newComment.author.trim() !== '') {
-                const newCommentObj = {
-                    id: this.comments.length + 1,
-                    author: this.newComment.author.trim(),
-                    text: this.newComment.text.trim(),
-                }
-                this.comments.push(newCommentObj)
-                this.newComment = { text: '', author: '' }
-            }
-        }
+        
     }
 }
 </script>
