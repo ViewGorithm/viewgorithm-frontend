@@ -1,5 +1,5 @@
 <template>
-  <div class="signup-container py-9">
+  <div class="signup-container">
     <div class="signup-header">
       <h1>Join Us</h1>
       <p>View And Understand</p>
@@ -62,6 +62,7 @@ export default {
   align-items: center;
   justify-content: center;
   background-color: #f0f0f0;
+  height: 100vh;
 }
 
 .signup-header {
