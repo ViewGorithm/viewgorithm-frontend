@@ -11,7 +11,7 @@ import router from './router'
 // PrimeVue import
 import PrimeVue from 'primevue/config';
 import "primeicons/primeicons.css";
-import Lara from '@/presets/lara';
+import Lara from '@/assets/lara';
 import Button from 'primevue/button';
 // PrimeVue Table
 import DataTable from 'primevue/datatable';
