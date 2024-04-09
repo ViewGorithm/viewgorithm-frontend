@@ -3,24 +3,27 @@ import './index.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import PrimeVue from 'primevue/config';
 
 import App from './App.vue'
 import router from './router'
 
-import "primevue/resources/primevue.min.css";
+// PrimeVue import
+import PrimeVue from 'primevue/config';
 import "primeicons/primeicons.css";
-
-import Button from 'primevue/button';
+// PrimeVue Table
+import DataTable from 'primevue/datatable';
+import Column from 'primevue/column';
 
 
 const app = createApp(App)
 
-app.use(PrimeVue, { unstyled: true });
+
 app.use(createPinia())
 app.use(router)
-app.use(PrimeVue)
 
-app.component('Button', Button);
+// PrimeVue use
+app.use(PrimeVue, { unstyled: true });
+app.component('DataTable', DataTable);
+app.component('Column', Column);
 
 app.mount('#app')
