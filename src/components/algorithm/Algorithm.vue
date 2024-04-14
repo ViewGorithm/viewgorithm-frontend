@@ -10,7 +10,8 @@
         <div class="h-auto w-auto">
             앞으로 알고리즘 애니메이션을 보여주는 공간.
         </div>
-        
+        <Chart />
+        <Codes />
     </div>
 </template>
 
@@ -19,9 +20,12 @@ const emit = defineEmits(['toggleModal']);
 const sendButtonData = ()=>{
     emit('downModal', false);
 };
+
 </script>
 
 <script>
+import Chart from './Chart.vue';
+import Codes from './Codes.vue';
 export default {
     name: 'Algorithm',
     data() {
@@ -31,6 +35,7 @@ export default {
         }
     },
     components: {
+        Codes
     },
     props: {
         data: String,
