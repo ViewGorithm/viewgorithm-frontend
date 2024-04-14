@@ -14,7 +14,7 @@ import MainFooter from '../components/main/MainFooter.vue';
 import MainTitle from '../components/main/MainTitle.vue';
 import MainExplain from '../components/main/MainExplain.vue';
 
-import Algorithm from '../components/main/Algorithm.vue';
+import Algorithm from '../components/algorithm/Algorithm.vue';
 
 import { ref } from 'vue';
 
