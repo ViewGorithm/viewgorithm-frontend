@@ -1,6 +1,6 @@
 # viewgorithm-frontend
 
-### 사용된 기술
+## Tech
 - Vue.js
 - tailwind css
 - vue Router
