@@ -5,7 +5,7 @@
         <MainList @selectedAlgorithm="handleSelectedAlgorithm" @toggleModal="toggleModal" />
         <MainFooter />
     </div>
-    <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" class="modal-overlay" @downModal="downModal" />
+    <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" @downModal="downModal" />
 </template>
 
 <script setup>
@@ -83,19 +83,5 @@ const downModal = (value) => {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     justify-content: flex-end;
-}
-
-/* component 태그 영역 */
-.modal-overlay {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 95%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 </style>
