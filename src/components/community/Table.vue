@@ -23,14 +23,14 @@
                 <ul class="flex list-none">
                     <li>
                         <button
-                            class="h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-indigo-100"
+                            class="h-10 px-5 text-back-color transition-colors duration-150 bg-white rounded-l-lg focus:shadow-outline hover:bg-indigo-100 "
                             :disabled="currentPage === 1" @click="prevPage">
                             Prev
                         </button>
                     </li>
                     <li v-for="pageNumber in totalPages" :key="pageNumber">
                         <button
-                            class="h-10 px-5 text-indigo-600 transition-colors duration-300 bg-white focus:shadow-outline hover:bg-indigo-100"
+                            class="h-10 px-5 text-back-color transition-colors duration-300 bg-white focus:shadow-outline hover:bg-indigo-100"
                             :class="{ 'bg-indigo-600 text-black': pageNumber === currentPage }"
                             @click="changePage(pageNumber)">
                             {{ pageNumber }}
@@ -38,7 +38,7 @@
                     </li>
                     <li>
                         <button
-                            class="h-10 px-5 text-indigo-600 transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-indigo-100"
+                            class="h-10 px-5 text-back-color transition-colors duration-150 bg-white rounded-r-lg focus:shadow-outline hover:bg-indigo-100"
                             :disabled="currentPage === totalPages" @click="nextPage">
                             Next
                         </button>
@@ -47,13 +47,13 @@
             </nav>
         </div>
     </div>
-    <Button label="Create a Post"/>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 
 // 임시 데이터 (실제로는 API 또는 데이터베이스에서 가져옴)
+// 실제 구현 시 최신순으로 가져올 것.
 const posts = ref([
     { id: 1, title: 'Post 1', createdAt: new Date(2023, 3, 1) },
     { id: 2, title: 'Post 2', createdAt: new Date(2023, 3, 2) },

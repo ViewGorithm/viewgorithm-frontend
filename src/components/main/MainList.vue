@@ -27,6 +27,6 @@ const sendDataTo = (name) => {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>
