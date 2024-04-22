@@ -1,4 +1,6 @@
 <template>
+  <h3 class="text-xl font-oswald">Time Complexity</h3>
+  <p class="pb-6">It basically only shows 'average' and we're going to add the worst and best in the soon.</p>
   <Line class="chart" :data="data" :options="options" />
 </template>
   

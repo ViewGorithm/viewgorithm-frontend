@@ -12,10 +12,12 @@
   },
   "dependencies": {
     "chart.js": "^4.4.2",
+    "focus-trap-vue": "^4.0.3",
     "pinia": "^2.1.7",
     "primeicons": "^6.0.1",
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
+    "vue-code-highlight": "^0.7.8",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
