@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "chart.js": "^4.4.2",
+    "flowbite": "^2.3.0",
     "focus-trap-vue": "^4.0.3",
     "pinia": "^2.1.7",
     "primeicons": "^6.0.1",
