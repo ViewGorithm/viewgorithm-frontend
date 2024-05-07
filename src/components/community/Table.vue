@@ -54,7 +54,7 @@
             </button>
         </div>
     </div>
-    <PostCreate v-if="showCreateModal" />
+    <PostCreate v-if="showCreateModal" @close-create-modal="closeCreateModal" />
     <PostDetail v-if="selectedPost" :selectedPost="selectedPost" @close-modal="closeModal" />
 </template>
 
@@ -124,6 +124,10 @@ const closeModal = () => {
 
 const showCreate = () => {
     showCreateModal.value = true
+}
+
+const closeCreateModal = () => {
+    showCreateModal.value = false
 }
 </script>
 
