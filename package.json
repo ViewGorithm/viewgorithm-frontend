@@ -15,6 +15,7 @@
     "@tiptap/starter-kit": "^2.3.1",
     "@tiptap/vue-3": "^2.3.1",
     "@vueup/vue-quill": "^1.2.0",
+    "axios": "^1.7.2",
     "chart.js": "^4.4.2",
     "flowbite": "^2.3.0",
     "focus-trap-vue": "^4.0.3",
@@ -23,6 +24,7 @@
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
     "vue-code-highlight": "^0.7.8",
+    "vue-cookies": "^1.8.4",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^4.3.0"
   },

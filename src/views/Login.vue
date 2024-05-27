@@ -7,14 +7,19 @@
       <div class="login-form">
         <input type="text" placeholder="ID" v-model="ID" />
         <input type="password" placeholder="Password" v-model="password" />
-        <button @click="login">Log In</button>
+        <button @click="workginLogin()">Log In</button>
       </div>
       <p class="signup-link">Don't have an account? <router-link to="/join">Sign Up</router-link></p>
     </div>
   </template>
   
   <script>
+  import { userAuth } from '@/stores/userAuth.js'
   export default {
+    setup() {
+      const auth = userAuth()
+      return { auth }
+    },
     data() {
       return {
       ID: '',
@@ -22,10 +27,8 @@
       }
     },
     methods: {
-      login() {
-        // 향후 로그인 로직 구현
-        console.log('ID:', this.ID);
-        console.log('Password:', this.password);
+      workginLogin() {
+        this.auth.login(this.ID, this.password)
       }
     }
   }
