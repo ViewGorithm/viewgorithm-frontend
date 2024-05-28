@@ -20,6 +20,7 @@
     "flowbite": "^2.3.0",
     "focus-trap-vue": "^4.0.3",
     "pinia": "^2.1.7",
+    "pinia-plugin-persist": "^1.0.0",
     "primeicons": "^6.0.1",
     "vue": "^3.4.21",
     "vue-chartjs": "^5.3.1",
