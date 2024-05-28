@@ -17,7 +17,6 @@
 <script>
 import { ref } from 'vue'
 import { login } from '@/util/axios.auth'
-import { ref } from "vue";
 
 export default {
   name: 'Login',
