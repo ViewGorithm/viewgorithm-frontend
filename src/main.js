@@ -14,10 +14,9 @@ import VueCookies from "vue-cookies";
 
 const app = createApp(App)
 
-
 app.use(createPinia())
 app.use(router)
-app.use(VueCookies, { expireTimes: "7d", secure: true })
+app.use(VueCookies, { expireTimes: "7d", secure: false })
 app.use(VueCodeHighlight)
 app.component('QuillEditor', QuillEditor)
 
