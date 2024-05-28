@@ -3,6 +3,7 @@ import './style.css';
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import piniaPersist from 'pinia-plugin-persist';
 
 import App from './App.vue'
 import router from './router'
@@ -14,7 +15,7 @@ import VueCookies from "vue-cookies";
 
 const app = createApp(App)
 
-app.use(createPinia())
+app.use(createPinia().use(piniaPersist)) 
 app.use(router)
 app.use(VueCookies, { expireTimes: "7d", secure: false })
 app.use(VueCodeHighlight)
