@@ -28,6 +28,11 @@ export const userAuth = defineStore({
         },
         setLoggedIn(value) {
             this.isLoggedIn = value;
+        },
+        removeToken() {
+            this.accessToken = '';
+            this.refreshToken = '';
+            this.loginState = false;
         }
     },
     persist: {
