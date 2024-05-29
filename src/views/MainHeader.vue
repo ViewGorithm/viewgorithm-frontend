@@ -25,6 +25,7 @@
       </button>
       <button
         v-if="loginState"
+        @click="logout()"
         class="inline-flex items-center justify-center font-bold whitespace-nowrap text-lg h-10 px-4 py-2 ml-auto"
       >
         <RouterLink to="/">Logout</RouterLink>
@@ -41,11 +42,23 @@
 <script setup>
 import { userAuth } from '@/stores/userAuth'
 import { computed } from 'vue'
+import axios from 'axios'
+import VueCookies from "vue-cookies";
+import router from '@/router';
 
+axios.defaults.baseURL = 'http://localhost:8088';
 
 const auth = userAuth()
 
 const loginState = computed(() => auth.isLoggedIn)
+
+async function logout() {
+    await axios.post('/logout');
+    VueCookies.remove("tokens");
+    auth.removeToken();
+    auth.setLoggedIn(false);
+    router.push({ name: 'main' });
+}
 </script>
 
 <style>
