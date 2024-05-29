@@ -3,6 +3,7 @@ import VueCookies from "vue-cookies";
 import router from '@/router';
 import { userAuth } from '@/stores/userAuth';
 
+
 // axios 기본 url
 // 향후 환경변수로 변경 예정
 axios.defaults.baseURL = 'http://localhost:8088';
@@ -59,7 +60,7 @@ export const getRefreshToken = async () => {
 export async function logout() {
     auth.setToken = { accessToken : '', refreshToken : '', loginState : false};
     VueCookies.remove("tokens");
-    await axios.post('/user/logout');
+    await axios.post('/logout');
     router.push({ name: '/' });
 }
 

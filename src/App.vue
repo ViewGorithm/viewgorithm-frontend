@@ -1,51 +1,12 @@
 <template>
   <div>
-    <div class="bg-back-color text-white pb-1 h-20">
-      <header class="px-4 lg:px-6 h-20 flex items-center pt-4 pb-2">
-        <button
-          class="whitespace-nowrap rounded-3xl text-lg px-2 py-1 flex items-center justify-center"
-        >
-          <RouterLink to="/">
-            <img src="../public/faviconLogo.ico" alt="Logo" class="logoImg" />
-            <span class="sr-only">Home</span>
-          </RouterLink>
-        </button>
-
-        <button
-          v-if="!loginState"
-          class="inline-flex items-center justify-center font-bold whitespace-nowrap text-lg h-10 px-4 py-2 ml-auto"
-        >
-          <RouterLink to="/login">Login</RouterLink>
-        </button>
-
-        <button
-          v-if="!loginState"
-          class="inline-flex items-center justify-center font-bold whitespace-nowrap text-lg h-10 px-4 py-2"
-        >
-          <RouterLink to="/join">Join</RouterLink>
-        </button>
-        <button
-          v-if="loginState"
-          class="inline-flex items-center justify-center font-bold whitespace-nowrap text-lg h-10 px-4 py-2"
-        >
-          <RouterLink to="/">Logout</RouterLink>
-        </button>
-        <button
-          class="inline-flex items-center justify-center font-bold whitespace-nowrap text-lg h-10 px-4 py-2"
-        >
-          <RouterLink to="/community">Community</RouterLink>
-        </button>
-      </header>
-    </div>
+    <MainHeader />
     <RouterView />
   </div>
 </template>
 
 <script setup>
-import { userAuth } from './stores/userAuth'
-
-const auth = userAuth();
-const loginState = auth.loginState;
+import MainHeader from './views/MainHeader.vue'
 </script>
 
 <style>

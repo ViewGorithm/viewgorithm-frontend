@@ -12,8 +12,10 @@ import { QuillEditor } from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 import VueCookies from "vue-cookies";
-
+import mitt from 'mitt'
+const emitter = mitt();
 const app = createApp(App)
+
 
 app.use(createPinia().use(piniaPersist)) 
 app.use(router)
@@ -21,5 +23,5 @@ app.use(VueCookies, { expireTimes: "7d", secure: false })
 app.use(VueCodeHighlight)
 app.component('QuillEditor', QuillEditor)
 
-
+app.config.globalProperties.emitter = emitter
 app.mount('#app')

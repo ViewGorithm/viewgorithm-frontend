@@ -17,22 +17,23 @@
 <script>
 import { ref } from 'vue'
 import { login } from '@/util/axios.auth'
+import { userAuth } from '@/stores/userAuth'
 
 export default {
   name: 'Login',
   setup() {
     const ID = ref('')
     const password = ref('')
-    const authError = ref(null)
-
+    const auth = userAuth()
     function workginLogin() {
-      login(ID.value, password.value)
+      login(ID.value, password.value).then(() => {
+          auth.setLoggedIn(true)
+        })
     }
 
     return {
       ID,
       password,
-      authError,
       workginLogin
     }
   }

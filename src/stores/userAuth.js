@@ -6,7 +6,8 @@ export const userAuth = defineStore({
     state: () => ({
         accessToken: '',
         refreshToken: '',
-        loginState: false
+        loginState: false,
+        isLoggedIn: ref(false),
     }),
     getters: {
         getAccessToken() {
@@ -24,6 +25,9 @@ export const userAuth = defineStore({
             this.accessToken = tokens.accessToken;
             this.refreshToken = tokens.refreshToken;
             this.loginState = true;
+        },
+        setLoggedIn(value) {
+            this.isLoggedIn = value;
         }
     },
     persist: {
