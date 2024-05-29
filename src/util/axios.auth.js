@@ -56,12 +56,4 @@ export const getRefreshToken = async () => {
     }
 }
 
-
-export async function logout() {
-    auth.setToken = { accessToken : '', refreshToken : '', loginState : false};
-    VueCookies.remove("tokens");
-    await axios.post('/logout');
-    router.push({ name: '/' });
-}
-
 /* 추후 refresh api 중복 요청 방지를 위한 로직 추가 */
