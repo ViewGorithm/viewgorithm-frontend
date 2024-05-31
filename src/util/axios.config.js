@@ -1,9 +1,5 @@
 import axios from 'axios';
-import { userAuth } from '@/stores/userAuth';
-import { } from './axios.auth';
 
-
-const auth = userAuth();
 const REFRESH_URL = '/user/refresh';
 /*
         이 메소드는 HTTP 요청을 보낼 때 인증 토큰을 요청 헤더에 추가하는 역할의 함수.
@@ -19,10 +15,6 @@ axios.interceptors.request.use(function (config) {
 }, function (error) {
     return Promise.reject(error);
 });
-
-
-
-
 
 /*
         이 메소드는 응답 인터셉터로, 서버로부터 응답을 받기 전에 실행되는 함수.

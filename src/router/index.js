@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Join from '../views/Join.vue'
 import MainPage from '../views/MainPage.vue'
+import { userAuth } from '@/stores/userAuth'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -30,6 +31,11 @@ const router = createRouter({
       component: () => import('../views/Community.vue')
     }
   ]
+})
+
+router.beforeEach((to) => {
+  const auth = userAuth()
+  if (to.meta.requiresAuth && !auth.isLoggedIn) return '/login'
 })
 
 export default router
