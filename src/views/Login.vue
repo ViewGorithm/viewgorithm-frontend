@@ -16,7 +16,7 @@
   
 <script>
 import { ref } from 'vue'
-import { login } from '@/util/axios.user'
+import { login } from '@/api/axios.user'
 import { userAuth } from '@/stores/userAuth'
 
 export default {
@@ -115,4 +115,4 @@ export default {
 .signup-link a:hover {
   color: #555;
 }
-</style>@/util/axios.user
+</style>@/util/axios.user@/api/axios.user

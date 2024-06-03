@@ -43,7 +43,7 @@
 import { userAuth } from '@/stores/userAuth'
 import { computed } from 'vue'
 import axios from 'axios'
-import { logout } from '@/util/axios.user'
+import { logout } from '@/api/axios.user'
 
 axios.defaults.baseURL = 'http://localhost:8088';
 
@@ -90,4 +90,4 @@ header button:nth-child(3):active,
 header button:nth-child(4):active {
   color: #2c3e50; /* 버튼을 클릭했을 때의 글자색 */
 }
-</style>
+</style>@/api/axios.user
