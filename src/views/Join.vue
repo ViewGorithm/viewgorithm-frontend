@@ -5,51 +5,45 @@
       <p>View And Understand</p>
     </div>
     <div class="signup-form">
-      <input type="text" placeholder="Username" v-model="username" />
-      <input type="password" placeholder="Password" v-model="password" />
-      <input type="text" placeholder="Name" v-model="name" />
-      <div class="gender-input">
+      <input type="text" placeholder="Username" v-model="userInfo.userId" />
+      <input type="password" placeholder="Password" v-model="userInfo.password" />
+      <input type="text" placeholder="Name" v-model="userInfo.name" />
+      <div class="sex-input">
         <label>
-          <input type="radio" v-model="gender" value="male" /> Male
+          <input type="radio" v-model="userInfo.sex" value="male" /> Male
         </label>
         <label>
-          <input type="radio" v-model="gender" value="female" /> Female
+          <input type="radio" v-model="userInfo.sex" value="female" /> Female
         </label>
       </div>
-      <input type="date" placeholder="Birth Date" v-model="birthDate" />
-      <input type="tel" placeholder="Phone Number" v-model="phoneNumber" />
-      <input type="email" placeholder="Email" v-model="email" />
-      <button @click="signup">Sign Up</button>
+      <input type="date" placeholder="Birth Date" v-model="userInfo.birthDate" />
+      <input type="email" placeholder="Email" v-model="userInfo.email" />
+      <button @click="signup()">Sign Up</button>
     </div>
     <p class="login-link">Already have an account? <router-link to="/login">Login</router-link></p>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue'
+import { join } from '@/api/axios.user'
 export default {
-  data() {
-    return {
-      username: '',
+  name: 'Join',
+  setup() {
+    const userInfo = {
+      userId: '',
       password: '',
       name: '',
-      gender: '',
       birthDate: '',
-      phoneNumber: '',
-      email: '',
-      createdAt: new Date().toISOString()
+      sex: '',
+      email: ''
     }
-  },
-  methods: {
-    signup() {
-      // 회원가입 로직 구현
-      console.log('Username:', this.username);
-      console.log('Password:', this.password);
-      console.log('Name:', this.name);
-      console.log('Gender:', this.gender);
-      console.log('Birth Date:', this.birthDate);
-      console.log('Phone Number:', this.phoneNumber);
-      console.log('Email:', this.email);
-      console.log('Created At:', this.createdAt);
+    function signup() {
+      join(this.userInfo);
+    }
+    return {
+      userInfo,
+      signup
     }
   }
 }
@@ -99,6 +93,10 @@ export default {
   font-size: 1rem;
 }
 
+label input[type="radio"] {
+  width: 20px;
+}
+
 .signup-form button {
   width: 100%;
   padding: 0.8rem;
@@ -131,15 +129,15 @@ export default {
   color: #555;
 }
 
-.gender-input {
+.sex-input {
   display: flex;
   justify-content: center;
   margin-bottom: 1rem;
 }
 
-.gender-input label {
+.sex-input label {
   margin: 0 1rem;
   font-size: 1rem;
   color: #666;
 }
-</style>
+</style>@/api/axios.user
