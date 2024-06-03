@@ -45,6 +45,7 @@ const updateCookieValue = (key, newValue) => {
 //401에러가 발생했을 때 refresh token을 재발급하는 메소드.
 export const getRefreshToken = async () => {
     try {
+        const auth = userAuth()
         const { data } = await axios.post(REFRESH_URL);
         auth.setToken(data);
         updateCookieValue("tokens", data);
@@ -64,4 +65,10 @@ export async function logout() {
     auth.setLoggedIn(false);
     router.push({ name: 'main' });
 }
-/* 추후 refresh api 중복 요청 방지를 위한 로직 추가 */
+
+
+//회원가입
+export async function join(userInfo){
+    await axios.post('/user/join', userInfo);
+    router.push({ name: 'main' });
+}
