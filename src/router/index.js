@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Join from '../views/Join.vue'
 import MainPage from '../views/MainPage.vue'
+import Login from '../views/Login.vue'
+import Community from '../views/Community.vue'
 import { userAuth } from '@/stores/userAuth'
 
 const router = createRouter({
@@ -15,20 +17,17 @@ const router = createRouter({
     {
       path: '/join',
       name: 'join',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
       component: Join
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('../views/Login.vue')
+      component: Login
     },
     {
       path: '/community',
       name: 'community',
-      component: () => import('../views/Community.vue')
+      component: Community
     }
   ]
 })
