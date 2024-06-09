@@ -24,6 +24,8 @@ const emit = defineEmits(['close-create-modal'])
 const closeCreateModal = () => {
   emit('close-create-modal')
 }
+
+
 </script>
 
 <style lang="scss">
