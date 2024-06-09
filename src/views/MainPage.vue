@@ -5,7 +5,7 @@
         <MainList @selectedAlgorithm="handleSelectedAlgorithm" @toggleModal="toggleModal" />
         <MainFooter />
     </div>
-    <Algorithm v-if="showModal" :data="selectedData" @close-modal="closeModal" @downModal="downModal" />
+    <Algorithm v-if="showModal" :data="selectedData" @closeModal="closeModal" @downModal="downModal" />
 </template>
 
 <script setup>

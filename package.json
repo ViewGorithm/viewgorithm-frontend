@@ -17,6 +17,7 @@
     "@vueup/vue-quill": "^1.2.0",
     "axios": "^1.7.2",
     "chart.js": "^4.4.2",
+    "d3": "^7.9.0",
     "flowbite": "^2.3.0",
     "focus-trap-vue": "^4.0.3",
     "mitt": "^3.0.1",
