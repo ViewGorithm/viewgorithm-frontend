@@ -62,23 +62,15 @@
 import { ref, computed } from 'vue'
 import PostDetail from './PostDetail.vue';
 import PostCreate from './PostCreate.vue';
+import { getPosts } from '@/api/axios.post';
 
 // 임시 데이터 (실제로는 API 또는 데이터베이스에서 가져옴)
 // 실제 구현 시 최신순으로 가져올 것.
-const posts = ref([
-    { id: 1, title: 'Post 1', createdAt: new Date(2023, 3, 1) },
-    { id: 2, title: 'Post 2', createdAt: new Date(2023, 3, 2) },
-    { id: 3, title: 'Post 3', createdAt: new Date(2023, 3, 3) },
-    { id: 4, title: 'Post 4', createdAt: new Date(2023, 3, 4) },
-    { id: 5, title: 'Post 5', createdAt: new Date(2023, 3, 5) },
-    { id: 6, title: 'Post 6', createdAt: new Date(2023, 3, 6) },
-    { id: 7, title: 'Post 7', createdAt: new Date(2023, 3, 7) },
-    { id: 8, title: 'Post 8', createdAt: new Date(2023, 3, 8) },
-    { id: 9, title: 'Post 9', createdAt: new Date(2023, 3, 9) },
-    { id: 10, title: 'Post 10', createdAt: new Date(2023, 3, 10) },
-    { id: 11, title: 'Post 11', createdAt: new Date(2023, 3, 11) },
-    { id: 12, title: 'Post 12', createdAt: new Date(2023, 3, 12) },
-])
+const posts = ref();
+
+onBeforeMount(() => {
+  posts.value = getPosts();  
+})
 
 const currentPage = ref(1)
 const pageSize = 5
