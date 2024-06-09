@@ -10,6 +10,7 @@
 
             </div>
             <div class="h-auto w-auto">
+                <Bub />
                 앞으로 알고리즘 애니메이션을 보여주는 공간.
             </div>
             <div class="pt-8">
@@ -23,6 +24,7 @@
 </template>
 
 <script setup>
+import Bub from './Bubble.vue';
 const emit = defineEmits(['toggleModal']);
 const sendButtonData = () => {
     emit('downModal', false);
@@ -32,16 +34,21 @@ const sendButtonData = () => {
 <script>
 import Chart from './Chart.vue';
 import Codes from './Codes.vue';
+
+/*
+    props로 받아온 데이터를 기반으로 api 및 알고리즘 시각화 애니메이션 컴포넌트 호출
+*/
 export default {
     name: 'Algorithm',
     data() {
         return {
             showModalCom: true,
-
+            
         }
     },
     components: {
-        Codes
+        Codes,
+        Bub
     },
     props: {
         data: String,
