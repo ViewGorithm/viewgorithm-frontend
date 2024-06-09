@@ -62,8 +62,9 @@ const closeModal = () => {
     padding: 3%;
     margin-top: 20px;
     flex-flow: column wrap;
-    align-content: flex-end;
+    align-content: flex-start;
     overflow: scroll;
+    justify-content: center;
 }
 
 .modal-header {
