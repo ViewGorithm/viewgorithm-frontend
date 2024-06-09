@@ -17,46 +17,31 @@
                 <Chart />
             </div>
             <div>
-            <Codes />
+            <Codes :codes="algoCodes"/>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import Chart from './Chart.vue';
+import Codes from './Codes.vue';
 import Bub from './Bubble.vue';
+import { onBeforeMount, ref } from 'vue';
+import { getCodes } from '@/api/axios.data';
+
 const emit = defineEmits(['toggleModal']);
 const sendButtonData = () => {
     emit('downModal', false);
 };
-</script>
+const props = defineProps({
+  data: String,
+});
 
-<script>
-import Chart from './Chart.vue';
-import Codes from './Codes.vue';
-
-/*
-    props로 받아온 데이터를 기반으로 api 및 알고리즘 시각화 애니메이션 컴포넌트 호출
-*/
-export default {
-    name: 'Algorithm',
-    data() {
-        return {
-            showModalCom: true,
-            
-        }
-    },
-    components: {
-        Codes,
-        Bub
-    },
-    props: {
-        data: String,
-    },
-    methods: {
-
-    }
-}
+const algoCodes = ref({});
+onBeforeMount(async () => {
+    algoCodes.value = await getCodes(props.data);
+});
 </script>
 
 <style>
