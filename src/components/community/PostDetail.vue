@@ -2,7 +2,7 @@
     <div class="modal-overlay">
         <div class="modal-container">
             <div class="modal-header">
-                <h2>{{ selectedPost.title }}</h2>
+                <h2 class=" text-2xl font-mono">{{ selectedPost.title }}</h2>
                 <button
                     class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-custom-color font-bold w-7 h-7 rounded-xl"
                     @click="closeModal">
@@ -10,9 +10,8 @@
                 </button>
             </div>
             <section>
-                <p>Created At: {{ formatDate(selectedPost.createdAt) }}</p>
-                <p>Content</p>
-                <div>Post Content</div>
+                <p class="text-base text-gray-500 dark:text-gray-400 font-bold my-3">Created At : {{ formatDate(selectedPost.createdAt) }}</p>
+                <div class="text-balance border-t-2 border-b-2 py-16">{{ selectedPost.content }}</div>
             </section>
         </div>
     </div>
@@ -73,7 +72,7 @@ const closeModal = () => {
     align-items: center;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #302f2f;
     width: 100%;
 }
 </style>

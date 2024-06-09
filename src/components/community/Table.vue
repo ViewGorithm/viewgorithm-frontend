@@ -10,7 +10,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr v-for="post in paginatedPosts" :key="post.id" @click="showPostDetail(post)">
+                    <tr v-for="post in paginatedPosts" :key="post.id" @click="showPostDetail(post.id)">
                         <td class="border px-4 py-2">{{ post.id }}</td>
                         <td class="border px-4 py-2">{{ post.title }}</td>
                         <td class="border px-4 py-2">{{ formatDate(post.createdAt) }}</td>
@@ -59,21 +59,21 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onBeforeMount } from 'vue'
 import PostDetail from './PostDetail.vue';
 import PostCreate from './PostCreate.vue';
-import { getPosts } from '@/api/axios.post';
+import { getPosts, getPost } from '@/api/axios.post';
 
 // 임시 데이터 (실제로는 API 또는 데이터베이스에서 가져옴)
 // 실제 구현 시 최신순으로 가져올 것.
-const posts = ref();
+const posts = ref([]);
 
-onBeforeMount(() => {
-  posts.value = getPosts();  
+onBeforeMount(async() => {
+    posts.value = await getPosts();  
 })
 
 const currentPage = ref(1)
-const pageSize = 5
+const pageSize = 10
 const selectedPost = ref(null)
 const showCreateModal = ref(false)
 
@@ -106,8 +106,8 @@ const formatDate = (date) => {
     return new Date(date).toLocaleDateString('en-US', options)
 }
 
-const showPostDetail = (post) => {
-    selectedPost.value = post
+const showPostDetail = async (id) => {
+    selectedPost.value = await getPost(id);
 }
 
 const closeModal = () => {
