@@ -7,14 +7,13 @@
                 <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-custom-color font-bold w-7 h-7 rounded-xl" @click="sendButtonData()">
                     &times;
                 </button>
-
             </div>
             <div class="h-auto w-auto">
                 <Bub />
                 앞으로 알고리즘 애니메이션을 보여주는 공간.
             </div>
             <div class="pt-8">
-                <Chart />
+                <Chart :time-complexity="algoCodes.time_complexity" />
             </div>
             <div>
             <Codes :codes="algoCodes"/>
@@ -85,7 +84,7 @@ onBeforeMount(async () => {
     flex-grow: 1;
     margin-right: 10px;
     word-wrap: break-word;
-    font-size: x-large;
+    font-size: xx-large;
     font-weight: bold;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
