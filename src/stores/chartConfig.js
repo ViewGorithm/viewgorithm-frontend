@@ -1,15 +1,78 @@
+import { ticks } from "d3";
+
+const olognColor = '#7acbf9';
+const o1Color = '#f97a7a';
+const oNColor = '#f9f97a';
+const oNLogNColor = '#f97af9';
+const oNSquaredColor = '#7af97a';
+const oNCubedColor = '#7af9f9';
+
 export const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    labels: ['0', '5', '10', '15', '20', '25', '30', '35', '40', '45', '50', '55', '60', '65', '70', '75', '80', '85', '90', '95', '100'],
     datasets: [
         {
-            label: 'Data One',
-            backgroundColor: '#f87979',
-            data: [40, 39, 10, 40, 39, 80, 40]
+            label: 'O(1)',
+            backgroundColor: o1Color,
+            borderColor: o1Color,
+            tension: 0.3,
+            data: [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            label: 'O(log n)',
+            backgroundColor: olognColor,
+            borderColor: olognColor,
+            tension: 0.3,
+            data: [0, 1, 1.58, 2, 2.32, 2.58, 2.81, 3, 3.17, 3.32, 3.46, 3.58, 3.7, 3.81, 3.91, 4, 4.09, 4.17, 4.25, 4.32, 4.39, 4.46, 4.52, 4.58, 4.64, 4.7, 4.75, 4.81, 4.86, 4.91, 4.96, 5, 5.05, 5.09, 5.13, 5.17, 5.21, 5.25, 5.29, 5.32, 5.36, 5.39, 5.42, 5.46, 5.49, 5.52, 5.55, 5.58, 5.61, 5.64]
+        },
+        {
+            label: 'O(n)',
+            backgroundColor: oNColor,
+            borderColor: oNColor,
+            tension: 0.3,
+            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50]
+        },
+        {
+            label: 'O(n log n)',
+            backgroundColor: oNLogNColor,
+            borderColor: oNLogNColor,
+            tension: 0.3,
+            data: [0, 1.39, 4.75, 8, 11.61, 15.49, 19.57, 23.81, 28.21, 32.73, 37.37, 42.13, 47, 51.97, 57.04, 62.21, 67.47, 72.82, 78.26, 83.79, 89.39, 95.08, 100.84, 106.68, 112.59, 118.57, 124.62, 130.74, 136.93, 143.18, 149.5, 155.88, 162.32, 168.82, 175.38, 182, 188.67, 195.4, 202.19, 209.03, 215.92, 222.87, 229.87, 236.92, 244.02, 251.17, 258.37, 265.62, 272.91, 280.25]
+        },
+        {
+            label: 'O(n^2)',
+            backgroundColor: oNSquaredColor,
+            borderColor: oNSquaredColor,
+            tension: 0.3,
+            data: [1, 4, 9, 16, 25, 36, 49, 64, 81, 100, 121, 144, 169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625, 676, 729, 784, 841, 900, 961, 1024, 1089, 1156, 1225, 1296, 1369, 1444, 1521, 1600, 1681, 1764, 1849, 1936, 2025, 2116, 2209, 2304, 2401, 2500]
+        },
+        {
+            label: 'O(n^3)',
+            backgroundColor: oNCubedColor,
+            borderColor: oNCubedColor,
+            tension: 0.3,
+            data: [1, 8, 27, 64, 125, 216, 343, 512, 729, 1000, 1331, 1728, 2197, 2744, 3375, 4096, 4913, 5832, 6859, 8000, 9261, 10648, 12167, 13824, 15625, 17576, 19683, 21952, 24389, 27000, 29791, 32768, 35937, 39304, 42875, 46656, 50653, 54872, 59319, 64000, 68921, 74088, 79507, 85184, 91125, 97336, 103823, 110592, 117649]
         }
     ]
 }
-
 export const options = {
     responsive: true,
-    maintainAspectRatio: true
+    maintainAspectRatio: true,
+    alignToPixels: true,
+    scales:{
+        y: {
+            max: 50,
+            ticks:{
+                stepSize: 5
+            },
+            major: {
+                enabled: true,
+            },
+        },
+        x: {
+            max: 25,
+            major: {
+                enabled: true,
+            },
+        }
+    }
 }
