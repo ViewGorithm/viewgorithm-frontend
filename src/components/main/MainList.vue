@@ -18,7 +18,7 @@
 <script setup>
 import { ref } from 'vue';
 
-const algorithms = ref(['Bubble sort', 'Merge Sort', 'Quick Sort']);
+const algorithms = ref(['Bubble Sort', 'Merge Sort', 'Quick Sort']);
 const emit = defineEmits(['selectedAlgorithm', 'toggleModal']);
 
 const sendDataTo = (name) => {
