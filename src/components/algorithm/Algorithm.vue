@@ -26,8 +26,10 @@ import Chart from './Chart.vue';
 import Codes from './Codes.vue';
 import BubbleSort from './visualize/BubbleSort.vue';
 import MergeSort from './visualize/MergeSort.vue';
+import QuickSort from './visualize/QuickSort.vue';
 import { onBeforeMount, ref, computed } from 'vue';
 import { getCodes } from '@/api/axios.data';
+import QuickSortVue from './visualize/QuickSort.vue';
 
 const emit = defineEmits(['toggleModal']);
 const sendButtonData = () => {
@@ -48,6 +50,8 @@ const renderComponent = computed(() => {
             return BubbleSort;
         case "Merge Sort":
             return MergeSort;
+        case "Quick Sort":
+            return QuickSort;
         // 다른 알고리즘 컴포넌트를 추가하려면 여기에 case 문을 추가하세요.
         default:
             return null;
