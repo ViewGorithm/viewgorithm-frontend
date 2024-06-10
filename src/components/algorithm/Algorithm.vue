@@ -4,19 +4,18 @@
             <div class="modal-header">
                 <h2 class="m-header-title" v-if="data">Algorithm : {{ data }}</h2>
                 <h2 class="m-header-title" v-else>No Data Selected</h2>
-                <button class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-custom-color font-bold w-7 h-7 rounded-xl" @click="sendButtonData()">
+                <button
+                    class="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 hover:text-white hover:bg-custom-color font-bold w-7 h-7 rounded-xl"
+                    @click="sendButtonData()">
                     &times;
                 </button>
             </div>
-            <div class="h-auto w-auto">
-                <Bub />
-                앞으로 알고리즘 애니메이션을 보여주는 공간.
-            </div>
+            <component :is="renderComponent" />
             <div class="pt-8">
                 <Chart :time-complexity="algoCodes.time_complexity" />
             </div>
             <div>
-            <Codes :codes="algoCodes"/>
+                <Codes :codes="algoCodes" />
             </div>
         </div>
     </div>
@@ -25,8 +24,9 @@
 <script setup>
 import Chart from './Chart.vue';
 import Codes from './Codes.vue';
-import Bub from './Bubble.vue';
-import { onBeforeMount, ref } from 'vue';
+import BubbleSort from './visualize/BubbleSort.vue';
+import MergeSort from './visualize/MergeSort.vue';
+import { onBeforeMount, ref, computed } from 'vue';
 import { getCodes } from '@/api/axios.data';
 
 const emit = defineEmits(['toggleModal']);
@@ -34,12 +34,24 @@ const sendButtonData = () => {
     emit('downModal', false);
 };
 const props = defineProps({
-  data: String,
+    data: String,
 });
 
 const algoCodes = ref({});
 onBeforeMount(async () => {
     algoCodes.value = await getCodes(props.data);
+});
+
+const renderComponent = computed(() => {
+    switch (props.data) {
+        case "Bubble Sort":
+            return BubbleSort;
+        case "Merge Sort":
+            return MergeSort;
+        // 다른 알고리즘 컴포넌트를 추가하려면 여기에 case 문을 추가하세요.
+        default:
+            return null;
+    }
 });
 </script>
 
@@ -62,7 +74,7 @@ onBeforeMount(async () => {
     height: 90%;
     background: #fff;
     border-radius: 10px;
-    padding: 3%;
+    padding: 2%;
     margin-top: 20px;
     flex-flow: column wrap;
     align-content: flex-end;
