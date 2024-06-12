@@ -5,7 +5,7 @@
         class="whitespace-nowrap rounded-3xl text-lg px-2 py-1 flex items-center justify-center"
       >
         <RouterLink to="/">
-          <img src="../../public/faviconLogo.ico" alt="Logo" class="logoImg" />
+          <img src="/faviconLogo.ico" alt="Logo" class="logoImg" />
           <span class="sr-only">Home</span>
         </RouterLink>
       </button>
