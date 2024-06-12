@@ -3,14 +3,15 @@ import VueCookies from "vue-cookies";
 import router from '@/router';
 import { userAuth } from '@/stores/userAuth';
 
-// axios 기본 url
-// 향후 환경변수로 변경 예정
-axios.defaults.baseURL = 'http://localhost:8088';
 
 //refresh api url
 const REFRESH_URL = '/user/refresh';
 
-//pinia store에서 가져온 userAuth 객체 초기화
+//axios instance 생성
+const instance = axios.create({
+    baseURL: import.meta.env.VUE_APP_API_URL,
+    timeout: 3000,
+})
 
 
 /*
@@ -24,10 +25,9 @@ const REFRESH_URL = '/user/refresh';
 export async function login(userId, password) {
     try {
         const auth = userAuth();
-        const { data } = await axios.post('/user/login', { userId, password });
+        const { data } = await instance.post('/user/login', { userId, password });
         auth.setToken(data);
         VueCookies.set("tokens", data, "7d");
-        console.log(data);
         router.push({ name: 'main' });
     } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ export const getRefreshToken = async () => {
 
 export async function logout() {
     const auth = userAuth();
-    await axios.post('/logout');
+    await instance.post('/logout');
     VueCookies.remove("tokens");
     auth.removeToken();
     auth.setLoggedIn(false);
@@ -69,6 +69,6 @@ export async function logout() {
 
 //회원가입
 export async function join(userInfo){
-    await axios.post('/user/join', userInfo);
+    await instance.post('/user/join', userInfo);
     router.push({ name: 'main' });
 }

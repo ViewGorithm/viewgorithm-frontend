@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const REFRESH_URL = '/user/refresh';
+const REFRESH_URL = import.meta.env.VUE_APP_REFRESH_URL;
 /*
         이 메소드는 HTTP 요청을 보낼 때 인증 토큰을 요청 헤더에 추가하는 역할의 함수.
         첫번째 파라미터(콜백 함수)는 요청 구성(config)을 인자로 받음. 여기서 config.headers["Authorization"]를 설정하여 요청 헤더에 “Bearer” 타입의 인증 토큰을 추가.
