@@ -17,6 +17,7 @@ coverage
 /cypress/videos/
 /cypress/screenshots/
 
+/nginx
 .env
 
 # Editor directories and files
