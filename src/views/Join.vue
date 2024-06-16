@@ -16,7 +16,7 @@
           <input type="radio" v-model="userInfo.sex" value="female" /> Female
         </label>
       </div>
-      <input type="date" placeholder="Birth Date" v-model="userInfo.birthDate" />
+      <input type="date" placeholder="Birth Date" v-model="userInfo.birthDate" @blur="validateBirthDate" />
       <input type="email" placeholder="Email" v-model="userInfo.email" />
       <button @click="signup()">Sign Up</button>
     </div>
@@ -24,30 +24,51 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
-import { join } from '@/api/axios.user'
-export default {
-  name: 'Join',
-  setup() {
-    const userInfo = {
-      userId: '',
-      password: '',
-      name: '',
-      birthDate: '',
-      sex: '',
-      email: ''
-    }
-    function signup() {
-      join(this.userInfo);
-    }
-    return {
-      userInfo,
-      signup
-    }
+
+<script setup>
+import { ref } from 'vue';
+import { join } from '@/api/axios.user';
+
+const userInfo = ref({
+  userId: '',
+  password: '',
+  name: '',
+  birthDate: '',
+  sex: '',
+  email: ''
+});
+
+function signup() {
+  if (!validateUserInfo(userInfo.value)) {
+    return;
   }
+  if (!validateBirthDate()) {
+    return;
+  }
+  join(userInfo.value);
 }
+
+function validateUserInfo(userInfo) {
+  if (!userInfo.userId || !userInfo.password || !userInfo.name || !userInfo.birthDate || !userInfo.sex || !userInfo.email) {
+    alert('Please fill in all required fields.');
+    return false;
+  }
+  return true;
+}
+
+function validateBirthDate() {
+  const birthDate = new Date(userInfo.value.birthDate);
+  const currentDate = new Date();
+  if (birthDate >= currentDate) {
+    alert('Please enter a valid birth date.');
+    return false;
+  }
+  return true;
+}
+
+
 </script>
+
 
 <style scoped>
 .signup-container {
