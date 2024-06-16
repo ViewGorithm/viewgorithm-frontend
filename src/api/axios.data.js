@@ -1,9 +1,4 @@
-import axios from 'axios';
-
-const instance = axios.create({
-    baseURL: import.meta.env.VUE_APP_API_URL,
-    timeout: 3000,
-})
+import { instance } from "./index-api";
 
 export async function getCodes(algorithm){
     const algorithmName = (algorithm || '').split(' ')[0];

@@ -1,17 +1,11 @@
-import axios from 'axios'
 import VueCookies from "vue-cookies";
 import router from '@/router';
 import { userAuth } from '@/stores/userAuth';
+import { instance } from './index-api';
 
 
 //refresh api url
 const REFRESH_URL = '/user/refresh';
-
-//axios instance 생성
-const instance = axios.create({
-    baseURL: import.meta.env.VUE_APP_API_URL,
-    timeout: 3000,
-})
 
 
 /*
@@ -46,7 +40,7 @@ const updateCookieValue = (key, newValue) => {
 export const getRefreshToken = async () => {
     try {
         const auth = userAuth()
-        const { data } = await axios.post(REFRESH_URL);
+        const { data } = await instance.post(REFRESH_URL);
         auth.setToken(data);
         updateCookieValue("tokens", data);
         return data;
@@ -69,6 +63,7 @@ export async function logout() {
 
 //회원가입
 export async function join(userInfo){
+    console.log(import.meta.env.VUE_APP_BASE_URL);
     await instance.post('/user/join', userInfo);
     router.push({ name: 'main' });
 }
