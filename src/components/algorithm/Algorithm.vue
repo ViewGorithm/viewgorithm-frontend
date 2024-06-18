@@ -52,7 +52,6 @@ const renderComponent = computed(() => {
             return MergeSort;
         case "Quick Sort":
             return QuickSort;
-        // 다른 알고리즘 컴포넌트를 추가하려면 여기에 case 문을 추가하세요.
         default:
             return null;
     }
