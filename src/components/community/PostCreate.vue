@@ -13,7 +13,7 @@
         <input type="text" v-model="title" placeholder="Enter title"
           class="w-full p-2 border border-gray-300 rounded mb-4" />
       </div>
-      <QuillEditor ref="content" theme="snow" toolBar="minimal" />
+      <QuillEditor ref="content" theme="snow" toolBar="minimal" :style="{ width: 'auto', height: '65vh' }" />
       <button
         class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded m-2"
         @click="create">
