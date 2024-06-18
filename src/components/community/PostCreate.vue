@@ -9,7 +9,7 @@
           &times;
         </button>
       </div>
-      <div class="modal-body">document
+      <div class="modal-body">
         <input type="text" v-model="title" placeholder="Enter title"
           class="w-full p-2 border border-gray-300 rounded mb-4" />
       </div>
